@@ -1,3 +1,4 @@
+let slideIndex = 0;
 window.addEventListener('DOMContentLoaded', event => {
 
     // hexagon bitmap
@@ -15,18 +16,17 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
     let photos = $(".change-photos");
-    let photo2 = $(".change-photos .change-photo:nth-of-type(2)");
-    let photo1 = $(".change-photos .change-photo:nth-of-type(1)");
+
+    let disp = setInterval(() => {
+        displayPhoto();
+    }, 5000);
 
     photos.on('click', function () {
-        if(isMobileDevice()){
-            displayPhoto(photo1, photo2);
-        }
-    });
-    photos.hover(function(){
-        if(!isMobileDevice()){
-            displayPhoto(photo1, photo2);
-        }
+        clearInterval(disp);
+        displayPhoto();
+        disp = setInterval(() => {
+            displayPhoto();
+        }, 5000);
     });
 
     document.addEventListener('scroll', (e) => {
@@ -78,6 +78,7 @@ window.addEventListener('DOMContentLoaded', event => {
     $(window).on('resize', function(){
         setStartingPosition(); 
         expandSelectedService(selected_service_jq);
+        changeVisiblePhoto();
     });
 
     let selected_service = null;
@@ -165,12 +166,15 @@ window.addEventListener('DOMContentLoaded', event => {
         moveLayers(top_offset);
         changeCollapsible();
         moveBlurr(top_offset);
-        changeVisiblePhoto(photos, photo1, photo2);
     }
 
     setStartingPosition();
     loadVideo();
+    displayPhoto();
 
+    document.querySelectorAll('.change-photo').forEach(photo => {
+        $(photo).load(changeVisiblePhoto());
+    });
 });
 
 
@@ -184,23 +188,31 @@ function getChangeMaxWidth(){
 }
 
 
-function displayPhoto(photo1, photo2){
-    if(photo2.hasClass('active')){ 
-        photo2.removeClass('active');
-        photo1.addClass('active');
+function displayPhoto(){
+
+    let i;
+    const slides = document.getElementsByClassName("change-photo");
+  
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
     }
-     else{
-        photo1.removeClass('active');
-        photo2.addClass('active');
-    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    
+    slides[slideIndex-1].style.display = "block"; 
 }
 
-function changeVisiblePhoto(photos, photo1, photo2){
+function changeVisiblePhoto(){
 
-    photo1.addClass('active');
-    photo2.removeClass('active');
-   
-    photos.css("height", photo1.height() + "px");
+    let mh = $('.change-photo').height();
+    document.querySelectorAll('.change-photo').forEach(photo => {
+        $(photo).addClass('active');
+        console.log($(photo).height());
+        h = $(photo).height();
+        if(h>mh) mh = h;
+    });
+    $('.change-photos').css("height", mh + "px");
+    $('.arrow-change-photos').css('margin-top',  '3%');
     
     
 }
