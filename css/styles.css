@@ -11622,11 +11622,15 @@ svg + svg {
 }
 
 .arrow-header{
-  position: relative;
-  height: 13px;
-  width: 200px;
-  left: calc(50% - 183px/2 + 80.5px);
-  top: -24.5px;
+  /* position: relative; */
+  display: inline-block;
+  height: 0.45rem;
+  /* width: 190px; */
+  /* left: calc(50% - 183px/2 + 80.5px); */
+  /* top: calc(-0.6rem - 13px); */
+  /* float:right; */
+  /* top: -1.4rem; */
+  /* top: -24.5px; */
   overflow: hidden;
 }
 
