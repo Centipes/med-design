@@ -11612,6 +11612,10 @@ svg + svg {
   margin-left: 1.5rem;
 }
 
+.masthead .container{
+  position: relative;
+}
+
 .arrow-header > svg, .arrow-change-photos > svg, .arrow-map > svg, .arrow-services > svg {
   position: absolute;
   cursor: default;
@@ -11622,7 +11626,7 @@ svg + svg {
   height: 13px;
   width: 200px;
   left: calc(50% - 183px/2 + 80.5px);
-  top: -1.45em;/*-23.5px;*/
+  top: -24.5px;
   overflow: hidden;
 }
 
