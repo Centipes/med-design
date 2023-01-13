@@ -11624,7 +11624,9 @@ svg + svg {
 .arrow-header{
   /* position: relative; */
   display: inline-block;
-  height: 0.45rem;
+  vertical-align: middle;
+  padding-bottom: 0.375rem;
+  /* height: 0.45rem; */
   /* width: 190px; */
   /* left: calc(50% - 183px/2 + 80.5px); */
   /* top: calc(-0.6rem - 13px); */
