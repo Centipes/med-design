@@ -11622,7 +11622,7 @@ svg + svg {
   height: 13px;
   width: 200px;
   left: calc(50% - 183px/2 + 80.5px);
-  top: -1.45rem;/*-23.5px;*/
+  top: -1.45em;/*-23.5px;*/
   overflow: hidden;
 }
 
