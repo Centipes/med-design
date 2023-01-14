@@ -11653,7 +11653,9 @@ svg + svg {
   /* left: calc(50% - 183px/2 + 80.5px); */
   left: calc(50% + 100.5px);
   /* top: calc(-0.6rem - 13px); */
-  top: 25%;
+  /* top: 5em; */
+  top: calc(50% + 0.1rem);
+  transform: translate(0, -50%);
   overflow: hidden;
 }
 
@@ -11690,7 +11692,7 @@ svg + svg {
 
 
 #menu-fixed-top{
-  top: calc(2% + 1vw);
+  top: calc(1rem + 1vw);
   left: 0;
   width: 40px;
   right: 3vw;
@@ -11708,7 +11710,7 @@ svg + svg {
   position: relative;
   width: 30px;
   height: 20px;
-  margin-top: 23%;
+  margin-top: 18%;
   bottom: auto;
   right: 0;
   z-index: 1000;
@@ -11787,7 +11789,7 @@ svg + svg {
   display:block;
 }
 
-@media  only screen and (min-width:1400.67px) {
+/* @media  only screen and (min-width:1400.67px) {
   #toggle span{
     height: 0.15rem;
     top: 0rem;
@@ -11799,7 +11801,7 @@ svg + svg {
     height: 0.15rem;
 
   } 
-}
+} */
 
 /* @media  only screen and (max-width:1400.67px){
   #toggle span{
@@ -11811,7 +11813,7 @@ svg + svg {
   }
 } */
 
-@media  only screen and (max-width:1400.67px){
+/* @media  only screen and (max-width:1400.67px){
   #toggle span{
     height: 0.2rem;
   }
@@ -11819,7 +11821,7 @@ svg + svg {
   #toggle span:before {
     height: 0.2rem;
   }
-}
+} */
 
 /* menu appearance*/
 #menu {
