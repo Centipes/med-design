@@ -1439,6 +1439,12 @@ progress {
   width: 100%;
 }
 
+.col-footer{
+  text-align: center;
+  margin-right: 0;
+  margin-left: 0;
+}
+
 @media (min-width: 992px) {
   .col-lg {
     flex: 1 0 0%;
@@ -1492,6 +1498,14 @@ progress {
   .col-lg-2 {
     flex: 0 0 auto; 
     width: 16.66666667%;
+  }
+
+  .col-footer{
+    flex: 0 0 auto; 
+    width: auto;
+    text-align: left;
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .col-lg-3 {
@@ -11508,6 +11522,7 @@ html {
 .scroll-to-top:hover {
   color: #ffffff;
   background: #343a40;
+  -webkit-tap-highlight-color: #343a40;
 }
 
 .scroll-to-top i {
@@ -11523,7 +11538,8 @@ html {
 
   .scroll-to-top:active{
     color: #ffffff;
-    background: #343a40;  
+    background: #343a40;
+    -webkit-tap-highlight-color: #343a40;
   }
 }
 
@@ -11621,18 +11637,23 @@ svg + svg {
   cursor: default;
 }
 
+.record {
+  position: relative;
+}
+.arrow-header > svg{
+  position: relative;
+}
+
+
 .arrow-header{
-  /* position: relative; */
-  display: inline-block;
+  position: absolute;
   vertical-align: middle;
-  padding-bottom: 0.375rem;
-  /* height: 0.45rem; */
-  /* width: 190px; */
+  /* height: 13px; 
+  width: 200px; */
   /* left: calc(50% - 183px/2 + 80.5px); */
+  left: calc(50% + 100.5px);
   /* top: calc(-0.6rem - 13px); */
-  /* float:right; */
-  /* top: -1.4rem; */
-  /* top: -24.5px; */
+  top: 25%;
   overflow: hidden;
 }
 
@@ -11757,9 +11778,13 @@ svg + svg {
   transform: rotate(-90deg) translate(8px, 0px);
   background-color: #3b4147;
 } */
+#menu {
+  display:none; 
+}
 #toggle.on + #menu {
   opacity: 1;
   visibility: visible;
+  display:block;
 }
 
 @media  only screen and (min-width:1400.67px) {
@@ -11807,7 +11832,8 @@ svg + svg {
   font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
   text-align: center;
   border-top-right-radius: 8px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.4;
   box-shadow: 0 1px 8px rgba(0,0,0,0.05);
   opacity: 0;
   visibility: hidden;
@@ -11818,7 +11844,7 @@ svg + svg {
 
 @media  only screen and (max-width:680.00px) {
   #menu{
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -11892,13 +11918,15 @@ li a:focus {
 .gain-center{
   display: inline-block;
   transform: scale(1.0);
+  /* padding-top:0;
+  padding-bottom: 0; */
 }
 
 .gain-center{
   text-align: center; 
 }
 .gain-center:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 
@@ -11908,11 +11936,11 @@ li a:focus {
   }
   #sign-up-btn:focus{
     background: rgba(0, 0, 0, 0.4);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.4);
   }
   #sign-up-btn:active{
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.4);
-    -webkit-touch-callout: none;
   }
   /* #sign-up-btn:active{
     background: rgba(0, 0, 0, 0.4);
@@ -11933,7 +11961,7 @@ li a:focus {
   /* пикча top: 2%;
   left: 2%; */
   top: 0%;
-  left: 0%;
+  left: calc((-1)*(2 / 3 * (100% - 95%) + 140px)/3.3 + 3vw); /*calc(-140px/3 + 3vw);*/
   margin-right: auto;
   position: absolute;
   z-index: 999;
@@ -12065,7 +12093,7 @@ li a:focus {
   transform: translate(500px, 0px);
 }
 #canvas-right-bottom{
-  transform: translate(550px, 0px);
+  transform: translate(550px, 200px);
 }
 
 #canvas-container-left-top{
@@ -12093,9 +12121,9 @@ li a:focus {
 }
 
 #canvas-container-right-bottom{
-  height: 1200px;
+  height: 1300px;
   right:0;
-  top: 0px;
+  top: -10px;
 }
 
 #tabs > a{
@@ -12354,13 +12382,27 @@ td.coast {
 }
 
 .img-logo-bottom{
-  width: 50%;
   height: auto;
+  object-fit:cover;
+  position: absolute; 
+  width:200px;
+  top:61%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.img-logo-box{
+  height: 50px;
+  width: 90px;
+  position: relative;
+  margin-right: 3rem !important;
+  margin-left: 3rem !important;
+  /* overflow:hidden; */
 }
 
 @media (max-width: 991.98px) {
   .img-logo-bottom{
-    width: 40%;
+    width: calc(40% + 100px);
     height: auto;
   }
 }

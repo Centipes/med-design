@@ -66,7 +66,8 @@ window.addEventListener('DOMContentLoaded', event => {
     document.addEventListener('mousemove', onMouseMove);
     function onMouseMove(e){
         if (isMobileDevice()) {
-            mouse_x = 0;
+            mouse_y = null;
+            mouse_x = null;
             return;
         }
         mouse_y = e.clientY;
@@ -74,7 +75,7 @@ window.addEventListener('DOMContentLoaded', event => {
         moveLayers(top_offset, mouse_x, mouse_y, cScroll); 
     }
 
-    
+
     $(window).on('resize', function(){
         setStartingPosition(); 
         expandSelectedService(selected_service_jq);
@@ -207,7 +208,6 @@ function changeVisiblePhoto(){
     let mh = $('.change-photo').height();
     document.querySelectorAll('.change-photo').forEach(photo => {
         $(photo).addClass('active');
-        console.log($(photo).height());
         h = $(photo).height();
         if(h>mh) mh = h;
     });
@@ -272,7 +272,7 @@ function moveLayers(top_offset, mouse_x=null, mouse_y=null, cScroll=null){
 
     let perY = 1;
     if(mouse_x!=null)
-        perY = 1.2;
+        perY = 0.9;
 
     document.querySelectorAll('.canvas-container').forEach(cnt => {
         let layer = cnt.querySelector('.layer');
@@ -297,8 +297,12 @@ function moveLayers(top_offset, mouse_x=null, mouse_y=null, cScroll=null){
             y += (top_offset - $(window).width());
             if(num_layer%2 != 0)
                 x += (top_offset - $(window).width());
-            if(num_layer == 2)
+            if(num_layer == 2){
+                if(y*perY+200 > window.screen.height/2){
+                    y*=0.9;
+                }
                 $('.clearfix').css('top', 200 + y*perY + "px");
+            }
         }
     
         else{
@@ -318,13 +322,17 @@ function moveLayers(top_offset, mouse_x=null, mouse_y=null, cScroll=null){
 
 function moveLayer(cnt, layer, x, y, layerAngle, num_layer){
     if(layer.id == 'canvas-right-bottom'){ 
-        cnt.style.top = 90 + 'px';
-        layer.style.transform = `translateX(${x}px) translateY(${y + 200}px) rotate(${180 + y + layerAngle}deg)`;
+        cnt.style.top = -40 + 'px';
+        if(y+200 < 0){
+            layer.style.transform = `translateX(${x}px) translateY(${-(y+190)}px) rotate(${180 + y + layerAngle}deg)`;
+        }
+        else
+            layer.style.transform = `translateX(${x}px) translateY(${y+200}px) rotate(${180 + y + layerAngle}deg)`;
     }
     else{
         if(num_layer != 2)
             cnt.style.top = y + 'px';
-        layer.style.transform = `translateX(${x}px) rotate(${180 + y + layerAngle}deg)`;
+        layer.style.transform = `translateX(${x}px) rotate(${180 + y+ layerAngle}deg)`;
     }
     layer.style.transition = 'rotate 0.09s linear';
 }
