@@ -198,7 +198,7 @@ p {
   margin-bottom: 1rem;
   position: relative;
   font-family: 'benzin-regular';
-  font-size: 18px;
+  font-size: 1rem;
   z-index: 1020;
   letter-spacing: 0.03em;
 }
@@ -11644,10 +11644,14 @@ svg + svg {
   position: relative;
 }
 
+.arrow-map > svg {
+  position: relative;
+}
 
 .arrow-header{
   position: absolute;
   vertical-align: middle;
+  height: 1.2rem;
   /* height: 13px; 
   width: 200px; */
   /* left: calc(50% - 183px/2 + 80.5px); */
@@ -11670,24 +11674,26 @@ svg + svg {
   right: 0;
   left: auto;
   height: 13px;
-  
+  top: 50%;
 }
 
 .arrow-map {
-  position: relative;
-  height: 13px;
-  top: 1.37rem;
-  right: 155px;
+  position: absolute;
+  height: 1.2rem;
+  right: 250px;
   /* overflow: hidden; */
 }
 
 .arrow-service{
-  position: relative;
-  top: 0.95rem;
+  position: absolute;
   left:-10px;
   opacity: 0;
-  width: 200px;
-  height: 13px;
+  height: 1.2rem;
+}
+
+.service .record{
+  margin-bottom: 0.73rem;
+  margin-top: 0.74rem;
 }
 
 
