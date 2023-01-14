@@ -11651,17 +11651,30 @@ svg + svg {
 .arrow-header{
   position: absolute;
   vertical-align: middle;
-  /* height: 1.2rem; */
-  /* height: 13px; 
-  width: 200px; */
-  /* left: calc(50% - 183px/2 + 80.5px); */
   left: calc(50% + 100.5px);
-  /* top: calc(-0.6rem - 13px); */
-  /* top: 5em; */
-  top: calc(50% + 0.1rem);
+  top: calc(50% + 2px);
   transform: translate(0, -50%);
   overflow: hidden;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio > 10),
+       screen and (   -moz-min-device-pixel-ratio > 10),
+       screen and (     -o-min-device-pixel-ratio > 10),
+       screen and (        min-device-pixel-ratio > 10){
+      .arrow-header{
+        top: calc(50% - 1px);  
+      }
+}
+
+/* @media screen and (-webkit-min-device-pixel-ratio <= 10),
+       screen and (   -moz-min-device-pixel-ratio <= 10),
+       screen and (     -o-min-device-pixel-ratio <= 10),
+       screen and (        min-device-pixel-ratio <= 10){
+      .arrow-header{
+        top: calc(50% + 1px);  
+      }
+} */
+
 
 .arrow-change-photos{
   position: relative;
@@ -11693,6 +11706,16 @@ svg + svg {
   opacity: 0;
   transform: translate(0, -50%);
   top: calc(50%);
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio > 10),
+       screen and (   -moz-min-device-pixel-ratio > 10),
+       screen and (     -o-min-device-pixel-ratio > 10),
+       screen and (        min-device-pixel-ratio > 10){
+        .arrow-service, .arrow-map {
+        top: calc(50% - 1px);  
+      }
 }
 
 .service .record{
@@ -11924,7 +11947,7 @@ li a:focus {
 
 #sign-up-btn > p {
   font-family: 'benzin-medium';
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .gain-center{
@@ -12343,6 +12366,14 @@ td.coast {
     width: auto;
   }
 }
+
+@media (max-width: 915px) {
+  #team .row-container-height {
+    min-height: 40rem;
+    width: auto;
+  }
+}
+
 
 @media (min-width: 1920px) {
   #team .row-container-height {
