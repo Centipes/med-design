@@ -11654,7 +11654,7 @@ svg + svg {
   left: calc(50% + 100.5px);
   /* top: calc(-0.6rem - 13px); */
   /* top: 5em; */
-  top: calc(50% + 0.1rem);
+  top: calc(50%);
   transform: translate(0, -50%);
   overflow: hidden;
 }
