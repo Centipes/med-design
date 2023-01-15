@@ -26,8 +26,8 @@ window.addEventListener('DOMContentLoaded', event => {
     // $('#arrow-header').css("top", (50-13*window.devicePixelRatio) + "%");
     // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
     $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
-    $('#arrow-map').css("transform", "translate(0, " + -(4*window.devicePixelRatio) + "px)");
-    $('.arrow-service').css('transform', 'translate(0,' + -(3*window.devicePixelRatio) + 'px)');
+    $('#arrow-map').css("transform", "translate(0, " + -(5*window.devicePixelRatio/1.25) + "px)");
+    $('.arrow-service').css('transform', 'translate(0,' + -(4*window.devicePixelRatio/1.25) + 'px)');
     
 
     let disp = setInterval(() => {
