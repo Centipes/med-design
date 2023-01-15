@@ -57,7 +57,7 @@
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --bs-body-font-size: 1rem;
+  /* --bs-body-font-size: 1rem; */
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
@@ -198,7 +198,7 @@ p {
   margin-bottom: 1rem;
   position: relative;
   font-family: 'benzin-regular';
-  font-size: 1rem;
+  font-size: 1.1rem;
   z-index: 1020;
   letter-spacing: 0.03em;
 }
@@ -11649,22 +11649,24 @@ svg + svg {
 }
 
 .arrow-header{
-  position: absolute;
-  vertical-align: middle;
+  /* position: absolute; */
+  padding-top: 0.2rem; 
+  /* padding-bottom: 0.375rem; */
+  /* vertical-align: middle; */
   left: calc(50% + 100.5px);
-  top: calc(50% + 5px);
-  transform: translate(0, calc(-50% - 3px));
+  /* top: calc(50% + 5px); */
+  /* transform: translate(0, calc(-50% - 3px)); */
   overflow: hidden;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio >= 2),
+/* @media screen and (-webkit-min-device-pixel-ratio >= 2),
        screen and (   -moz-min-device-pixel-ratio >= 2),
        screen and (     -o-min-device-pixel-ratio >= 2),
        screen and (        min-device-pixel-ratio >= 2){
       .arrow-header{
           top: calc(50% - 5px);  
       }
-}
+} */
 
 /* @media screen and (-webkit-min-device-pixel-ratio <= 10),
        screen and (   -moz-min-device-pixel-ratio <= 10),
@@ -11692,11 +11694,12 @@ svg + svg {
 
 .arrow-map {
   vertical-align: middle;
-  position: absolute;
+  padding-top: 0.1rem; 
+  /* position: absolute; */
   /* height: 1.2rem; */
   left: calc(50% - 160px);
-  transform: translate(0, -50%);
-  top: calc(50%);
+  /* transform: translate(0, -50%);
+  top: calc(50%); */
   /* overflow: hidden; */
 }
 
@@ -11704,10 +11707,15 @@ svg + svg {
   position: absolute;
   left:-10px;
   opacity: 0;
+  padding-top: 0.1rem;
   transform: translate(0, -50%);
   top: calc(50%);
 }
 
+
+#contacts .record {
+  margin-right: 106px;
+}
 
 @media screen and (-webkit-min-device-pixel-ratio > 10),
        screen and (   -moz-min-device-pixel-ratio > 10),
@@ -11927,6 +11935,10 @@ li a:focus {
   text-align: center;
 }
 
+#header .record{
+  margin-left: 106px; 
+}
+
 #sign-up-btn{
   position: relative;
   color:white;
@@ -11936,8 +11948,9 @@ li a:focus {
   border:none;
   box-shadow: none !important;
   font-family: 'benzin-regular';
-  transition: .3s; 
+  transition: .25s; 
   z-index: 1020;
+  letter-spacing: 0;
   display: inline-block;
 }
 
@@ -11947,21 +11960,19 @@ li a:focus {
 
 #sign-up-btn > p {
   font-family: 'benzin-medium';
-  font-size: 1.1em;
+  font-size: 1.2rem;
 }
 
 .gain-center{
   display: inline-block;
-  transform: scale(1.0);
-  /* padding-top:0;
-  padding-bottom: 0; */
+  /* transform: scale(1.0); */
 }
 
 .gain-center{
   text-align: center; 
 }
 .gain-center:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 
