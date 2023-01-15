@@ -18,11 +18,14 @@ window.addEventListener('DOMContentLoaded', event => {
     let photos = $(".change-photos");
 
     console.log(window.devicePixelRatio);
-    // console.log($('.arrow-header').height());
-    // console.log($('.gain-center').parent().height());
+    console.log($('#arrow-header').height());
+    console.log($('.gain-center').parent().height());
     // let g = $('.arrow-header').height();
     // let t = $('.gain-center').parent().height();
-    // $('.arrow-header').css("transform", "translate(0, " + (t)/2 + "px)");
+    // $('#arrow-header').css("transform", "translate(0, " + (-window.devicePixelRatio) + "%)");
+    // $('#arrow-header').css("top", (50-13*window.devicePixelRatio) + "%");
+    // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
+    $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
     
 
     let disp = setInterval(() => {

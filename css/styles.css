@@ -11644,6 +11644,7 @@ svg + svg {
   position: absolute;
   top: calc(50%); 
   transform: translate(0, calc(-50%));
+  cursor: default;  
 }
 
 .arrow-map > svg {
@@ -11659,6 +11660,7 @@ svg + svg {
   left: calc(50% + 100.5px);
   top: calc(50%); 
   transform: translate(0, calc(-50%));
+  cursor: default;
   overflow: hidden;
 }
 
@@ -11682,7 +11684,7 @@ svg + svg {
   top: calc(50%);
 }
 
-@media screen and (-webkit-max-device-pixel-ratio: 4),
+/* @media screen and (-webkit-max-device-pixel-ratio: 4),
        screen and (   -moz-max-device-pixel-ratio: 4),
        screen and (     -o-max-device-pixel-ratio: 4),
        screen and (        max-device-pixel-ratio: 4){
@@ -11692,7 +11694,7 @@ svg + svg {
       .arrow-map, .arrow-service {
         padding-top: 0.1rem;
       }
-}
+} */
 
 
 
@@ -11949,7 +11951,7 @@ li a:focus {
 
 #sign-up-btn > p {
   font-family: 'benzin-medium';
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 
 .gain-center{
