@@ -11652,17 +11652,17 @@ svg + svg {
   position: absolute;
   vertical-align: middle;
   left: calc(50% + 100.5px);
-  top: calc(50% + 2px);
-  transform: translate(0, -50%);
+  top: calc(50% + 5px);
+  transform: translate(0, calc(-50% - 3px));
   overflow: hidden;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio > 10),
-       screen and (   -moz-min-device-pixel-ratio > 10),
-       screen and (     -o-min-device-pixel-ratio > 10),
-       screen and (        min-device-pixel-ratio > 10){
+@media screen and (-webkit-min-device-pixel-ratio >= 2),
+       screen and (   -moz-min-device-pixel-ratio >= 2),
+       screen and (     -o-min-device-pixel-ratio >= 2),
+       screen and (        min-device-pixel-ratio >= 2){
       .arrow-header{
-        top: calc(50% - 1px);  
+          top: calc(50% + 5px);  
       }
 }
 
