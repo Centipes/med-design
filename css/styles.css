@@ -11680,10 +11680,10 @@ svg + svg {
   top: calc(50%);
 }
 
-@media screen and (-webkit-min-device-pixel-ratio = 1),
-       screen and (   -moz-min-device-pixel-ratio = 1),
-       screen and (     -o-min-device-pixel-ratio = 1),
-       screen and (        min-device-pixel-ratio = 1){
+@media screen and (-webkit-max-device-pixel-ratio: 4),
+       screen and (   -moz-max-device-pixel-ratio: 4),
+       screen and (     -o-max-device-pixel-ratio: 4),
+       screen and (        max-device-pixel-ratio: 4){
       .arrow-header{
           padding-top: 0.2rem;  
       }

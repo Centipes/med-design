@@ -17,6 +17,8 @@ window.addEventListener('DOMContentLoaded', event => {
 
     let photos = $(".change-photos");
 
+    console.log(window.devicePixelRatio);
+
     let disp = setInterval(() => {
         displayPhoto();
     }, 5000);
