@@ -26,6 +26,8 @@ window.addEventListener('DOMContentLoaded', event => {
     // $('#arrow-header').css("top", (50-13*window.devicePixelRatio) + "%");
     // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
     $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
+    $('#arrow-map').css("transform", "translate(0, " + -(4*window.devicePixelRatio) + "px)");
+    $('.arrow-service').css('transform', 'translate(0,' + -(3*window.devicePixelRatio) + 'px)');
     
 
     let disp = setInterval(() => {
@@ -124,6 +126,7 @@ window.addEventListener('DOMContentLoaded', event => {
             selected_service_jq = $(t_content);
             return false;
         }
+
     });
 
 
@@ -146,8 +149,11 @@ window.addEventListener('DOMContentLoaded', event => {
                 if($(selected_service_jq).css("max-height") == '0px')
                     animatedCollapsible($(selected_service_jq));
             }
+
+            $(".row-services").css("height", "auto");
         }
         else{
+            let service_h = 0;
             document.querySelectorAll('.service').forEach(service => {
     
                 t_content=$(service).attr("href");
@@ -164,7 +170,12 @@ window.addEventListener('DOMContentLoaded', event => {
                     addClass(selected_service, 'on');
                     $(t_content).show();     
                 }
+
+                let scrollHeight = $(t_content).prop('scrollHeight');
+                if(service_h < scrollHeight) service_h = scrollHeight;
             });
+
+            $(".row-services").css("height", service_h+"px");
         }
     }
 
