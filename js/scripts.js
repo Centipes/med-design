@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     let photos = $(".change-photos");
 
-    // console.log(window.devicePixelRatio);
+    console.log(window.devicePixelRatio);
     // console.log($('.arrow-header').height());
     // console.log($('.gain-center').parent().height());
     // let g = $('.arrow-header').height();
