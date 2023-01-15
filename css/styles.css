@@ -11640,8 +11640,10 @@ svg + svg {
 .record {
   position: relative;
 }
-.arrow-header > svg{
-  position: relative;
+#arrow-header{
+  position: absolute;
+  top: calc(50%); 
+  transform: translate(0, calc(-50%));
 }
 
 .arrow-map > svg {
@@ -11684,8 +11686,8 @@ svg + svg {
        screen and (   -moz-max-device-pixel-ratio: 4),
        screen and (     -o-max-device-pixel-ratio: 4),
        screen and (        max-device-pixel-ratio: 4){
-      .arrow-header{
-          padding-top: 0.2rem;  
+      #arrow-header{
+          margin-top: 0.2rem;  
       }
       .arrow-map, .arrow-service {
         padding-top: 0.1rem;
