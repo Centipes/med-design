@@ -26,9 +26,9 @@ window.addEventListener('DOMContentLoaded', event => {
     // $('#arrow-header').css("top", (50-13*window.devicePixelRatio) + "%");
     // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
     $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
-    $('#arrow-map').css("transform", "translate(0, " + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio) + "px)");
+    $('#arrow-map').css("transform", "translate(0, " + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio+0.1*(1.25-window.devicePixelRatio)) + "px)");
     $('.arrow-service').css('transform', 'translate(0,' + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*0.8/window.devicePixelRatio) + 'px)');
-    console.log(-(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*0.8/window.devicePixelRatio));
+    console.log(-(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio));
     
 
     let disp = setInterval(() => {
@@ -175,9 +175,13 @@ window.addEventListener('DOMContentLoaded', event => {
                 let scrollHeight = $(t_content).prop('scrollHeight');
                 if(service_h < scrollHeight) service_h = scrollHeight;
             });
-            
-            $(".row-services").css("height", service_h+"px");
-
+            if(service_h <= $(".row-services").height())
+                $(".row-services").css("height", service_h+"px");
+            else {
+                console.log(service_h, $(".row-services").height());
+                $(".row-services").css("height", "auto");
+            }
+    
         }
     }
 
