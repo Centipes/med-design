@@ -11662,7 +11662,7 @@ svg + svg {
        screen and (     -o-min-device-pixel-ratio >= 2),
        screen and (        min-device-pixel-ratio >= 2){
       .arrow-header{
-          top: calc(50%-8px);  
+          top: calc(50% - 6px);  
       }
 }
 
