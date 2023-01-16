@@ -175,7 +175,8 @@ window.addEventListener('DOMContentLoaded', event => {
                 let scrollHeight = $(t_content).prop('scrollHeight');
                 if(service_h < scrollHeight) service_h = scrollHeight;
             });
-            if(service_h <= $(".row-services").height())
+            console.log("px", $(".tabs-container").height(), $("#table-height-control").height());
+            if($(".tabs-container").height() <= $("#table-height-control").height())
                 $(".row-services").css("height", service_h+"px");
             else {
                 console.log(service_h, $(".row-services").height());
