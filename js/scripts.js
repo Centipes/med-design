@@ -175,8 +175,8 @@ window.addEventListener('DOMContentLoaded', event => {
                 let scrollHeight = $(t_content).prop('scrollHeight');
                 if(service_h < scrollHeight) service_h = scrollHeight;
             });
-            console.log("px", $(".tabs-container").height(), $("#table-height-control").height());
-            if($(".tabs-container").height() <= $("#table-height-control").height())
+            console.log("px", $(".tabs-container").height(), $("#table-height-control").height(), document.getElementById("tabs"));
+            if(!isOverflowedHeight(document.getElementById("tabs")))
                 $(".row-services").css("height", service_h+"px");
             else {
                 console.log(service_h, $(".row-services").height());
@@ -216,6 +216,10 @@ function getChangeMaxWidth(){
     }
     return 975;
 }
+
+function isOverflowedHeight(el) {
+    return el.scrollHeight > el.offsetHeight;
+  }
 
 
 function displayPhoto(){
