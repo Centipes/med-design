@@ -172,10 +172,11 @@ window.addEventListener('DOMContentLoaded', event => {
                     $(t_content).show();     
                 }
 
-                let scrollHeight = $(t_content).prop('scrollHeight');
+                let scrollHeight = $(t_content).height();
                 if(service_h < scrollHeight) service_h = scrollHeight;
+                console.log(scrollHeight,  $(t_content).height(), service_h);
             });
-            console.log("px", $(".tabs-container").height(), $("#table-height-control").height(), document.getElementById("tabs"));
+            console.log("px", $(".tabs-container").height(), $("#table-height-control").height());
             if(!isOverflowedHeight(document.getElementById("tabs")))
                 $(".row-services").css("height", service_h+"px");
             else {
