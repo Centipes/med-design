@@ -26,6 +26,8 @@ window.addEventListener('DOMContentLoaded', event => {
     // $('#arrow-header').css("top", (50-13*window.devicePixelRatio) + "%");
     // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
     // $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
+    console.log('record', $('#record-first').height());
+    $($('#record-first').height())
     $('#arrow-map').css("transform", "translate(0, " + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio+0.1*(1.25-window.devicePixelRatio)) + "px)");
     $('.arrow-service').css('transform', 'translate(0,' + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*0.8/window.devicePixelRatio) + 'px)');
     console.log(-(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio));
