@@ -200,9 +200,7 @@ p {
   font-family: 'benzin-regular';
   font-size: 1.1em;
   z-index: 1020;
-  text-align: center;
   letter-spacing: 0.03em;
-  vertical-align:middle;
 }
 
 p.sub{
@@ -11640,20 +11638,11 @@ svg + svg {
 }
 
 .record {
-  text-align: center;
   position: relative;
-  height: auto;
-  /* display: flex;   
-  justify-content: center; */
 }
 #arrow-header{
- 
   top: calc(50%); 
-  transform: translate(100px, calc(-50%)); 
-}
-
-.arrow-header{
-  text-align: center;
+  transform: translate(0, calc(-50%)); 
 }
 
 .arrow-map > svg {
@@ -11916,17 +11905,22 @@ li a:focus {
 
 
 
+
+
 #sign-up-btn{
+  position: relative;
   color:white;
   text-decoration: none;
   background-color: transparent;
   border-color: transparent;
   border:none;
   box-shadow: none !important;
+  font-family: 'benzin-regular';
   transition: .25s; 
   z-index: 1020;
-  padding: 0;
-  margin-top: 0;
+  letter-spacing: 0;
+  display: inline-block;
+  /* padding: 0; */
 }
 
 #sign-up-btn:hover {
@@ -11934,29 +11928,36 @@ li a:focus {
 } 
 
 #sign-up-btn > p {
-  position: absolute;
-  font-family: 'benzin-medium';
-  font-size: 1.2em;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  top:0;
-  line-height: 7.5px;
-  top: 50%;
-  left: 50%;
-  left: 0; bottom: 0; right: 0;
-  transform: translate(0, -50%);
-  height: 13px;
+  max-width: 540px;
+
+  --font: 'benzin-medium';
+  --capitalHeight: 0.78;
+  --descender: 0.74;
+  --ascender: 1.8;
+  --linegap: 0;
+
+    --fontSize: 16;
+    font-family: var(--font);
+
+    --computedFontSize: (var(--fontSize) / var(--capitalHeight));
+    --lineheightNormal: (var(--ascender) + var(--descender) + var(--linegap));
+    --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
+    --distanceBottom: (var(--descender));
+    --distanceTop: (var(--ascender) - var(--capitalHeight));
+    --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
+    --lineheight: 1;
+
+    font-size: calc(var(--computedFontSize) * 1px);
+    line-height: calc(((var(--lineheight) * var(--fontSize)) - var(--valign)) * 1px);
+}
+p > span{
+  vertical-align: calc(var(--valign) * -1px);
 }
 
+
 .gain-center{
-  /* display: inline-block; */
+  display: inline-block;
   /* transform: scale(1.0); */
-  /* padding-top: 0;
-  padding-bottom: 0; */
-  text-align: center;
-  vertical-align: middle;
-  /* top: 50%;
-  transform: translate(0, -50%); */
 }
 
 .gain-center{
