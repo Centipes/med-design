@@ -11931,27 +11931,28 @@ li a:focus {
   max-width: 540px;
 
   --font: 'benzin-medium';
-  --capitalHeight: 0.76;
-  --descender: 1.5;
-  --ascender: 2.0;
+  --capitalHeight: 0.9;
+  --descender: 1.25;
+  --ascender: 1.8;
   --linegap: 0;
 
-    --fontSize: 16;
-    font-family: var(--font);
+  --fontSize: 18;
 
-    --computedFontSize: (var(--fontSize) / var(--capitalHeight));
-    --lineheightNormal: (var(--ascender) + var(--descender) + var(--linegap));
-    --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
-    --distanceBottom: (var(--descender));
-    --distanceTop: (var(--ascender) - var(--capitalHeight));
-    --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
-    --lineheight: 1;
+  --computedFontSize: (var(--fontSize) / var(--capitalHeight));
+  --lineheightNormal: (var(--ascender) + var(--descender) + var(--linegap));
+  --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
+  --distanceBottom: (var(--descender));
+  --distanceTop: (var(--ascender) - var(--capitalHeight));
+  --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
+  --lineheight: 1;
 
-    font-size: calc(var(--computedFontSize) * 1px);
-    line-height: calc(((var(--lineheight) * var(--fontSize)) - var(--valign)) * 1px);
+  font-size: calc(var(--computedFontSize) * 1px);
+  line-height: calc(((var(--lineheight) * var(--fontSize)) - var(--valign)) * 1px);
 }
-p > span{
-  vertical-align: calc(var(--valign)*1px);
+@media (max-resolution: 2dppx) {
+  p > span{
+    vertical-align: calc(var(--valign)*1px);
+  }
 }
 
 
