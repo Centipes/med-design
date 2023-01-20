@@ -11931,9 +11931,9 @@ li a:focus {
   max-width: 540px;
 
   --font: 'benzin-medium';
-  --capitalHeight: 0.78;
-  --descender: 0.74;
-  --ascender: 1.8;
+  --capitalHeight: 0.76;
+  --descender: 1.5;
+  --ascender: 2.0;
   --linegap: 0;
 
     --fontSize: 16;
@@ -11951,7 +11951,7 @@ li a:focus {
     line-height: calc(((var(--lineheight) * var(--fontSize)) - var(--valign)) * 1px);
 }
 p > span{
-  vertical-align: calc(var(--valign) * -1px);
+  vertical-align: calc(var(--valign)*1px);
 }
 
 
@@ -12408,7 +12408,7 @@ td.coast {
 }
 
 .change-photo{
-  display: block;
+  display: none;
 }
 
 .change-photo img {
@@ -12419,6 +12419,9 @@ td.coast {
   object-fit: cover;
 }
 
+.first-photo{
+  display: block;
+}
 
 .fade-photo {
   animation-name: fade-photo;

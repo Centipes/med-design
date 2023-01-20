@@ -1,4 +1,4 @@
-let slideIndex = 0;
+let slideIndex = 1;
 window.addEventListener('DOMContentLoaded', event => {
 
     // hexagon bitmap
@@ -35,14 +35,14 @@ window.addEventListener('DOMContentLoaded', event => {
 
     let disp = setInterval(() => {
         displayPhoto();
-    }, 5000);
+    }, 3000);
 
     photos.on('click', function () {
         clearInterval(disp);
         displayPhoto();
         disp = setInterval(() => {
             displayPhoto();
-        }, 5000);
+        }, 3000);
     });
 
     document.addEventListener('scroll', (e) => {
@@ -176,11 +176,11 @@ window.addEventListener('DOMContentLoaded', event => {
 
                 let scrollHeight = $(t_content).height();
                 if(service_h < scrollHeight) service_h = scrollHeight;
-                // console.log(scrollHeight,  $(t_content).height(), service_h);
+                
             });
-            console.log("px", $(".tabs-container").height(), $("#table-height-control").height());
-            if(!isOverflowedHeight($(".col-offset-1")))
+            if(!detectWrap('col-services')){
                 $(".row-services").css("height", service_h+"px");
+            }
             else {
                 console.log(service_h, $(".row-services").height());
                 $(".row-services").css("height", "auto");
@@ -199,15 +199,32 @@ window.addEventListener('DOMContentLoaded', event => {
         moveLayers(top_offset);
         changeCollapsible();
         moveBlurr(top_offset);
+        detectWrap('col-services');
     }
 
     setStartingPosition();
     loadVideo();
-    displayPhoto();
 
-    document.querySelectorAll('.change-photo').forEach(photo => {
-        $(photo).load(changeVisiblePhoto());
+    [].forEach.call(document.querySelectorAll('img[data-src]'),    function(img) {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.onload = function() {
+            changeVisiblePhoto();
+            img.removeAttribute('data-src');
+        };
     });
+
+    // document.querySelectorAll('.change-photo').forEach(photo => {
+    //     photo.setAttribute('src', photo.getAttribute('data-src'));
+    //     $(photo).load(
+    //         function() {
+    //             photo.removeAttribute('data-src');
+    //             changeVisiblePhoto()
+    //         }
+    //     );
+    // });
+
+    // displayPhoto();
+
 });
 
 
@@ -219,11 +236,6 @@ function getChangeMaxWidth(){
     }
     return 975;
 }
-
-function isOverflowedHeight(el) {
-    console.log("offst", $(el).prop('scrollHeight'), $(el).prop('offsetHeight'));
-    return $(el).prop('scrollHeight') > $(el).prop('offsetHeight');
-  }
 
 
 function displayPhoto(){
@@ -242,9 +254,11 @@ function displayPhoto(){
 
 function changeVisiblePhoto(){
 
-    let mh = $('.change-photo').height();
+    let first_photo = $('.change-photo')[0];
+    let mh = $(first_photo).height();
+
     document.querySelectorAll('.change-photo').forEach(photo => {
-        $(photo).addClass('active');
+        // $(photo).addClass('active');
         h = $(photo).height();
         if(h>mh) mh = h;
     });
@@ -253,6 +267,24 @@ function changeVisiblePhoto(){
     
     
 }
+
+function detectWrap(className) {
+  
+    var prevItem = {};
+    var currItem = {};
+    var items = document.getElementsByClassName(className);
+  
+    for (var i = 0; i < items.length; i++) {
+      currItem = items[i].getBoundingClientRect();
+      if (prevItem && prevItem.top < currItem.top) {
+        return true;
+      }
+      prevItem = currItem;
+    };
+    return false;
+  
+}
+  
 
 function animatedCollapsible(content){
     
