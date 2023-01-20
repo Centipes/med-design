@@ -11932,8 +11932,8 @@ li a:focus {
 
   --font: 'benzin-medium';
   --capitalHeight: 0.9;
-  --descender: 1.25;
-  --ascender: 1.8;
+  --descender: 2.5;
+  --ascender: 1.4;
   --linegap: 0;
 
   --fontSize: 18;
@@ -11944,17 +11944,18 @@ li a:focus {
   --distanceBottom: (var(--descender));
   --distanceTop: (var(--ascender) - var(--capitalHeight));
   --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
-  --lineheight: 1;
+  --lineheight: 3;
 
   font-size: calc(var(--computedFontSize) * 1px);
   line-height: calc(((var(--lineheight) * var(--fontSize)) - var(--valign)) * 1px);
 }
 @media (max-resolution: 2dppx) {
   p > span{
-    vertical-align: calc(var(--valign)*1px);
+    /* vertical-align: calc(var(--valign)*1px); */
+    vertical-align: 50%;
+    font-size: 1em;
   }
 }
-
 
 .gain-center{
   display: inline-block;
