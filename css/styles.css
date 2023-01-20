@@ -11689,8 +11689,8 @@ svg + svg {
 }
 
 .service .record{
-  margin-bottom: 0.3rem;
-  margin-top: 1.7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .row-services {
@@ -11933,12 +11933,12 @@ li a:focus {
 }
 
 #a-map{
-  --capitalHeight: 0.9;
-  --descender: 2.5;
-  --ascender: 1.4;
+  --capitalHeight: 0.95;
+  --descender: 1.7;
+  --ascender: 0.9;
   --linegap: 0;
 
-  --fontSize: 17.25;
+  --fontSize: 17;
 
   --computedFontSize: (var(--fontSize) / var(--capitalHeight));
   --lineheightNormal: (var(--ascender) + var(--descender) + var(--linegap));
@@ -11963,8 +11963,8 @@ li a:focus {
 
 @media (max-resolution: 2dppx) {
   .a-without-line > span {
-    font-size: 1em;
-    vertical-align: calc(50%);
+    /* font-size: 1em; */
+    vertical-align: calc(20%);
   }
 }
 
@@ -12196,12 +12196,12 @@ li a:focus {
 
 .service .p-click{
 
-  --capitalHeight: 0.9;
-  --descender: 2.65;
-  --ascender: 1.5;
+  --capitalHeight: 0.95;
+  --descender: 1.7;
+  --ascender: 0.9;
   --linegap: 0;
 
-  --fontSize: 16.9;
+  --fontSize: 17;
 
   --computedFontSize: (var(--fontSize) / var(--capitalHeight));
   --lineheightNormal: (var(--ascender) + var(--descender) + var(--linegap));
@@ -12219,9 +12219,8 @@ li a:focus {
 } 
 
 @media (max-resolution: 2dppx){
-  .service .p-click > span{
-    font-size: 1em;
-    vertical-align: calc(50%);
+  .service .p-click > span{  
+    vertical-align: calc(20%);
   }
 }
 
@@ -12311,7 +12310,7 @@ td.coast {
     font-size: calc( (100vw - 320px)/(992 - 320) * (1 - 0.1) + 0.7em);
   }
   table{
-    margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
   td {
     width:55%;
@@ -12320,6 +12319,10 @@ td.coast {
     font-size: calc( (100vw - 320px)/(992 - 320) * (1 - 0.1) + 0.7em);
     padding:0;
     width: 200px;
+  }
+  .service .record {
+    margin-top: 0.5rem;
+    margin-bottom: 1.0rem;
   }
   .works-container{
     margin-right: 0;
