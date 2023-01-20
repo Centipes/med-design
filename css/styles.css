@@ -1447,6 +1447,10 @@ progress {
   margin-left: 0;
 }
 
+.col-offset-1{
+  margin-top: 3rem;
+}
+
 @media (min-width: 992px) {
   .col-lg {
     flex: 1 0 0%;
@@ -1536,6 +1540,7 @@ progress {
   }
 
   .col-offset-1{
+    margin-top: 0;
     margin-left:3.2rem;
   }
 
