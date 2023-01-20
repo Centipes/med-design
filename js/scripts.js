@@ -27,8 +27,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // $('#arrow-header').css("", (1.1*window.devicePixelRatio) + "em");
     // $('#arrow-header').css("transform", "translate(0, " + -(2*window.devicePixelRatio) + "px)");
     console.log('record', $('#record-first').height());
-    $($('#record-first').height())
-    $('#arrow-map').css("transform", "translate(0, " + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio+0.1*(1.25-window.devicePixelRatio)) + "px)");
+    // $('#arrow-map').css("transform", "translate(0, " + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio+0.1*(1.25-window.devicePixelRatio)) + "px)");
     $('.arrow-service').css('transform', 'translate(0,' + -(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*0.8/window.devicePixelRatio) + 'px)');
     console.log(-(3*window.devicePixelRatio/1.25+1.25/window.devicePixelRatio*2.5/window.devicePixelRatio));
     
@@ -141,16 +140,23 @@ window.addEventListener('DOMContentLoaded', event => {
                 $(service).append($(t_content));
                 $(t_content).show();   
                 $(t_content).addClass('tab_content');
-                if(selected_service && selected_service != service && $(t_content).css("max-height") != '0px'){
-                    animatedCollapsible($(t_content));
-                }
 
+                if(selected_service){
+                    if(selected_service != service){
+                        $(t_content).css("opacity", "0.0");
+                        if($(t_content).css("max-height") != '0px')
+                            animatedCollapsible($(t_content));
+                    }else
+                        $(t_content).css("opacity", "1.0");
+                }
+                
             });
             if(selected_service){
                 removeClass(selected_service, 'on');
-
-                if($(selected_service_jq).css("max-height") == '0px')
+                if($(selected_service_jq).css("max-height") == '0px'){
                     animatedCollapsible($(selected_service_jq));
+                    $(selected_service_jq).css("opacity", "1.0");
+                }
             }
 
             $(".row-services").css("height", "auto");
@@ -162,6 +168,7 @@ window.addEventListener('DOMContentLoaded', event => {
                 t_content=$(service).attr("href");
                 $(t_content).removeClass('tab_content');
                 $('.tabs_content').append($(t_content));
+                $(t_content).css("opacity", "1.0");
                 $(t_content).hide();
 
                 if(service.id == 'first-service' && selected_service == null){
@@ -182,7 +189,6 @@ window.addEventListener('DOMContentLoaded', event => {
                 $(".row-services").css("height", service_h+"px");
             }
             else {
-                console.log(service_h, $(".row-services").height());
                 $(".row-services").css("height", "auto");
             }
     
@@ -212,18 +218,6 @@ window.addEventListener('DOMContentLoaded', event => {
             img.removeAttribute('data-src');
         };
     });
-
-    // document.querySelectorAll('.change-photo').forEach(photo => {
-    //     photo.setAttribute('src', photo.getAttribute('data-src'));
-    //     $(photo).load(
-    //         function() {
-    //             photo.removeAttribute('data-src');
-    //             changeVisiblePhoto()
-    //         }
-    //     );
-    // });
-
-    // displayPhoto();
 
 });
 
@@ -290,10 +284,12 @@ function animatedCollapsible(content){
     
     if ($(content).css("max-height") != '0px'){
         $(content).css("max-height", '');
+        $(content).css("opacity", "0.0");
         
     } else {
         let scrollHeight = $(content).prop('scrollHeight');
         $(content).css("max-height", scrollHeight+"px");
+        $(content).css("opacity", "1.0");
     }
 }
 
@@ -368,7 +364,7 @@ function moveLayers(top_offset, mouse_x=null, mouse_y=null, cScroll=null){
                 x += (top_offset - $(window).width());
             if(num_layer == 2){
                 if(y*perY+200 > window.screen.height/2){
-                    y*=0.9;
+                    y*=0.95;
                 }
                 $('.clearfix').css('top', 200 + y*perY + "px");
             }
